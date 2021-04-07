@@ -28,5 +28,5 @@ call plug#end()
 
 "colors and autocommands
 colo gruvbox
-llet g:lightline = {}
+let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
