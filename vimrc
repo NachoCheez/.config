@@ -24,4 +24,9 @@ Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'Kjwon15/vim-transparent'
 Plug 'shinchu/lightline-gruvbox.vim'
-                                       
+call plug#end()
+
+"colors and autocommands
+colo gruvbox
+llet g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
