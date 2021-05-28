@@ -186,17 +186,14 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 hide_edge_borders both
-bar {
-        status_command i3blocks -c ~/.config/i3/i3blocksconfig/i3blocks/config    
-	colors {
-		background $bg-color
-	    	separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-                }
-}
+#bar {
+          #status_command i3blocks -c ~/.config/i3/i3blocksconfig/i3blocks/config    
+          exec_always --no-startup-id $HOME/.config/polybar/launch.sh	
+#	colors {
+#	        exec_always --no-startup-id ~/.config/polybar/launch.sh
+#		}
+#}
 #autolaunch applications
-exec --no-startup-id ~/.fehbg
-exec picom
+#exec --no-startup-id ~/.fehbg
+exec compton 
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
