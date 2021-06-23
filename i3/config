@@ -44,7 +44,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+R exec --no-startup-id dmenu_run
+bindsym $mod+space exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -93,7 +93,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -186,14 +186,25 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 hide_edge_borders both
-#bar {
-          #status_command i3blocks -c ~/.config/i3/i3blocksconfig/i3blocks/config    
-          exec_always --no-startup-id $HOME/.config/polybar/launch.sh	
-#	colors {
-#	        exec_always --no-startup-id ~/.config/polybar/launch.sh
-#		}
+bar {
+        
+	position top 	
+        font pango:Inconsolata 7 	
+	status_command bumblebee-status -m cpu memory battery disk ping xrandr datetime -t nord-powerline
+        strip_workspace_numbers yes	
+	colors {
+	  
+	  background #2E3440
+
+	
+	}
+
+}   	
+#	
 #}
 #autolaunch applications
 #exec --no-startup-id ~/.fehbg
-exec compton 
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec picom 
+for_window [class="^.*"] border pixel 0
+gaps inner 3 
+gaps outer 3 
