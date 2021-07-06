@@ -1,4 +1,4 @@
-#this config has been created by NachoCheez
+#this config has been created by NachoCh33z
 
 set $mod Mod4
 
@@ -180,8 +180,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 hide_edge_borders both
 bar {
    position top 	
-        font pango:Hack 6 	
-	status_command bumblebee-status -m cpu memory battery disk ping xrandr datetime  -t nord-powerline 
+        font pango:Hack Nerd Font 10	
+	status_command bumblebee-status -m cpu memory xrandr date time battery  -t dracula-powerline 
         strip_workspace_numbers yes	
 	colors {
 	  
@@ -204,9 +204,10 @@ bar {
 #autolaunch applications
 #exec --no-startup-id ~/.fehbg
 exec picom 
-exec redshift -P -O 4000
+exec redshift -P -O 3500
 exec nitrogen --restore
-exec xrandr --output DP-2 --right-of HDMI-0 --output DP-4 --off
+exec xrandr --output eDP-1 --off
 for_window [class="^.*"] border pixel 0 
 gaps inner 2 
 gaps outer 2 
+
