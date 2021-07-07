@@ -1,10 +1,4 @@
-" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
-" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing archlinux.vim since it alters the value of the
-" 'compatible' option.
+"This is the nvim theme for dracula config.  
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages.
@@ -21,7 +15,9 @@ syntax on
 " vim plug configuration
 call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'Kjwon15/vim-transparent'
 Plug 'dracula/vim'
 call plug#end()
@@ -31,3 +27,14 @@ colo dracula
                                       
 set number
 
+"font and symbol configuration
+let g:airline_powerline_fonts = 1
+ let g:airline#extensions#coc#enabled = 1
+ let g:airline#extensions#tabline#enabled = 1
+ let g:airline_right_alt_sep = ''
+ let g:airline_right_sep = ''
+ let g:airline_left_alt_sep= ''
+ let g:airline_left_sep = ''
+ let g:airline#extensions#tabline#left_sep = ''
+ let g:airline#extensions#tabline#left_alt_sep = ''
+ let g:airline_theme='dracula'
