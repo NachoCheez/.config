@@ -1,17 +1,5 @@
 ;==========================================================
 ;
-; THIS IS AN EXAMPLE CONFIGURATION FILE!
-; IT IS NOT SUPPOSED TO WORK OUT OF THE BOX SINCE IS CONTAINS
-; SETTINGS THAT ARE SPECIFIC TO THE MACHINE WHICH WAS USED
-; TO GENERATE IT.
-; Please refer to the web documentation hosted at:
-; https://github.com/polybar/polybar#configuration
-; and
-; https://github.com/polybar/polybar/wiki/Configuration
-; if you want to automatically generate one for you.
-;
-;==========================================================
-;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
 ;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
@@ -30,65 +18,136 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
+background = #1e2127
+background-alt = #383838
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #abb2bf
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/example]
-;monitor = ${env:MONITOR:DP-2}
+[bar/main]
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
-height = 22
-;offset-x = 1%
-;offset-y = 1%
+height = 2%
+offset-x = 1%
+offset-y = 1%
 radius = 0
-fixed-center = true 
-bottom = true
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 0 
+line-size = 3
 line-color = #f00
 
-border-size = 0 
+border-size = 0
 border-color = #00000000
 
-padding-left = 0
+padding-left = 0 
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left   =  2
+module-margin-right  =  2
 
 font-0 = fixed:pixelsize=9;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Siji:pixelsize=10;1
 
-modules-left = bspwm i3
-modules-center = mpd
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+
+##################
+# Workspace Tags #
+##################
+
+
+## i3 WM #####################
+# modules-left = launcher i3 
+##############################
+
+## Awesome WM #####################
+  modules-left = i3 
+###################################
+
+
+
+modules-center = date
+modules-right = audio battery clock
+
+
 
 tray-position = right
-tray-padding = 2
+tray-padding = 1
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
-;wm-restack = i3
+# ;wm-restack = bspwm
+wm-restack = i3
 
-;override-redirect = true
+override-redirect = false
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
+# ;scroll-up = bspwm-desknext
+# ;scroll-down = bspwm-deskprev
 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+## Launcher #############################################
+
+[module/launcher]
+
+type        =  custom/text
+content     =  "%{T4}"
+
+click-left  =  rofi -modi drun,run -show drun -theme config
+
+## Seperator ###########################################
+
+[module/seperator]
+
+type        =  custom/text
+content     =  " "
+
+## Awesome WM Config ###################################
+
+[module/1]
+
+type        =  custom/text
+content     =  "%{T3}"
+
+click-left  =  echo 'awful = require("awful"); config = require("config"); config.taglist.tags[ config.screens[1] ][1]:view_only()' | awesome-client
+
+[module/2]
+
+type        =  custom/text
+content     =  "%{T3}"
+
+click-left  =  echo 'awful = require("awful"); config = require("config"); config.taglist.tags[ config.screens[1] ][2]:view_only()' | awesome-client
+
+[module/3]
+
+type        =  custom/text
+content     =  "%{T3}"
+
+click-left  =  echo 'awful = require("awful"); config = require("config"); config.taglist.tags[ config.screens[1] ][3]:view_only()' | awesome-client
+
+[module/4]
+
+type        =  custom/text
+content     =  "%{T3}"
+
+click-left  =  echo 'awful = require("awful"); config = require("config"); config.taglist.tags[ config.screens[1] ][4]:view_only()' | awesome-client
+
+
+
+
+
+
+
+
+
 
 [module/xwindow]
 type = internal/xwindow
@@ -158,7 +217,7 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= #828791
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -233,7 +292,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp59s0
+interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -246,16 +305,16 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #FFFFFF
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+interface = net0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -269,28 +328,40 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
+[module/clock]
+
+type         =  internal/date
+interval     =  5
+
+time         =  "%I:%M"
+
+label        =  " %time%"
+
 [module/date]
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date = "%A, %d %B"
+date-alt = " %B, %d %Y"
 
-time = %H:%M
-time-alt = %H:%M:%S
+time = "- %I:%M"
+time-alt = ""
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-underline =
 
 label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
+
+format-volume-underline = #88bbb5
+format-muted-underline = #70807e
 
 label-muted = 🔇 muted
 label-muted-foreground = #666
@@ -311,6 +382,39 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/audio]
+type = internal/pulseaudio
+
+format-volume            =  <ramp-volume> <label-volume>
+label-volume-foreground  =  #FFFFFF
+ramp-volume-foreground   =  #FFFFFF
+label-volume             =  %percentage%%
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+label-muted = " muted"
+label-muted-foreground = ${colors.secondary}
+
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+format-underline = ${colors.cyan}
+label-padding = 2
+label-foreground = ${colors.foreground}
+
+# Icons mixed from Font Awesome 5 and Material Icons
+# You can copy-paste your options for each possible action, which is more
+# trouble-free but repetitive, or apply only the relevant ones (for example
+# --sink-blacklist is only needed for next-sink).
+exec = pulseaudio-control --icons-volume " , " --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_00_1b.0.analog-stereo:  Speakers" --sink-nickname "alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo:  Headphones" listen
+click-left = pulseaudio-control togmute
+click-middle = pulseaudio-control --sink-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-sink
+scroll-up = pulseaudio-control --volume-max 130 up
+scroll-down = pulseaudio-control --volume-max 130 down
+
 
 [module/alsa]
 type = internal/alsa
@@ -347,30 +451,30 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+# format-charging-underline = #88bbb5
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+# format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full-prefix = 
+format-full-prefix-foreground = #FFFFFF
+# format-full-underline = #88bbb5
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = #FFFFFF
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = #FFFFFF
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = #FFFFFF
 animation-discharging-framerate = 750
 
 [module/temperature]
