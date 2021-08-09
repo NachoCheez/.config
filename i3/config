@@ -36,7 +36,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id dmenu_run
+bindsym $mod+space exec --no-startup-id rofi -combi-modi drun -font 'Fira Code Nerd Font 18' -show combi -icon-theme 'Papirus' -show-icons  
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -178,26 +178,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 hide_edge_borders both
-bar {
-   position top 	
-        font pango:Hack Nerd Font 10	
-	status_command bumblebee-status -m cpu memory xrandr date time battery  -t dracula-powerline 
-        strip_workspace_numbers yes	
-	colors {
-	  
-	  background #2E3440
-          statusline #FFFFFF
-          separator #ffffff
 
-          # class            border  backgr. text
-          focused_workspace  #4C566A #4C566A #A3BE8C
-          active_workspace   #2E3440 #2E3440 #D08770
-          inactive_workspace #2E3440 #2E3440 #4C566A
-          urgent_workspace   #BF616A #2E3440 #BF616A
-          binding_mode       #2E3440 #2E3440 #A3BE8C
- 
-    }
-}
    	
 #	
 #}
@@ -206,7 +187,8 @@ bar {
 exec picom 
 exec redshift -P -O 4500k
 exec nitrogen --restore
-exec xrandr --output eDP-1 --off
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec xrandr --output HDMI-0 --left-of DP-4 
 for_window [class="^.*"] border pixel 0 
 gaps inner 2 
 gaps outer 2 
