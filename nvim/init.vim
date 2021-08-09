@@ -20,10 +20,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Kjwon15/vim-transparent'
 Plug 'dracula/vim'
+Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 call plug#end()
 
 "colors and autocommands
-colo dracula 
+colo onedark
                                       
 set number
 
@@ -37,4 +39,4 @@ let g:airline_powerline_fonts = 1
  let g:airline_left_sep = ''
  let g:airline#extensions#tabline#left_sep = ''
  let g:airline#extensions#tabline#left_alt_sep = ''
- let g:airline_theme='dracula'
+ let g:airline_theme='onedark'
