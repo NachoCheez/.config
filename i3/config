@@ -204,7 +204,7 @@ bar {
 #autolaunch applications
 #exec --no-startup-id ~/.fehbg
 exec picom 
-exec redshift -P -O 3500
+exec redshift -P -O 4500k
 exec nitrogen --restore
 exec xrandr --output eDP-1 --off
 for_window [class="^.*"] border pixel 0 
