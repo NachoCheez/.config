@@ -33,3 +33,7 @@ cd
 mkdir ~/.config/rofi
 cp -r ~/dotfiles/.config/rofi ~/.config
 cd
+
+mkdir ~/.config/cava
+cp -r ~/dotfiles/.config/cava ~/.config
+cd
