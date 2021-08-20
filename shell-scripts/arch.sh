@@ -29,3 +29,7 @@ cd
 mkdir ~/.config/polybar
 cp -r ~/dotfiles/.config/polybar ~/.config
 cd
+
+mkdir ~/.config/rofi
+cp -r ~/dotfiles/.config/rofi ~/.config
+cd
