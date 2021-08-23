@@ -1,3 +1,4 @@
+sudo pacman -Syyu git base-devel xorg alacritty i3-gaps dmenu rofi picom redshift nitrogen polybar fftw ncurses alsa-lib iniparser pulseaudio xorg-fonts-misc plasma
 git clone https://github.com/karlstav/cava
 cd cava
 ./autogen.sh
@@ -6,12 +7,13 @@ make
 sudo make install
 cd
 
-sudo pacman -Syyu git base-devel xorg alacritty i3-gaps dmenu rofi picom redshift nitrogen polybar fftw ncurses alsa-lib iniparser pulseaudio xorg-fonts-misc plasma
-yay -Syyu siji-git ttf-unifont
-git clone https://aur.archlinux.org/yay.git
+
 cd yay
 makepkg -si
 cd
+
+yay -Syyu siji-git ttf-unifont
+
 
 
 mkdir dotfiles
