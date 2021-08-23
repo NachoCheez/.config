@@ -7,7 +7,7 @@ make
 sudo make install
 cd
 
-
+git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd
