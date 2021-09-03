@@ -1,3 +1,10 @@
+#                 _                _
+# _ __   __ _  ___| |__   ___   ___| |__   ___  ___ ____
+#| '_ \ / _` |/ __| '_ \ / _ \ / __| '_ \ / _ \/ _ \_  /
+#| | | | (_| | (__| | | | (_) | (__| | | |  __/  __// /
+#|_| |_|\__,_|\___|_| |_|\___/ \___|_| |_|\___|\___/___|
+#
+
 #this config has been created by NachoCh33z
 
 set $mod Mod4
@@ -36,7 +43,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id rofi -combi-modi drun -font 'Hack 15' -show combi -icon-theme 'Papirus' -show-icons   
+bindsym $mod+space exec --no-startup-id rofi -combi-modi drun -font 'FiraMono Nerd Font 15' -show combi -icon-theme 'Papirus' -show-icons   
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -118,6 +125,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -168,15 +176,15 @@ set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-set $focused-window-color #88c0d0
+set $focused-window-color #ff79c6
 
 
 # window colors
 #                       border                background               text                 indicator
-client.focused          $focused-window-color $focused-window-color    $text-color          #88c0d0
-client.unfocused        $inactive-bg-color    $inactive-bg-color       $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color    $inactive-bg-color       $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color      $urgent-bg-color         $text-color          #00ff00
+client.focused          $focused-window-color $focused-window-color    $text-color          #ff79c6
+client.unfocused        $inactive-bg-color    $inactive-bg-color       $inactive-text-color #2f343f
+client.focused_inactive $inactive-bg-color    $inactive-bg-color       $inactive-text-color #2f343f
+client.urgent           $urgent-bg-color      $urgent-bg-color         $text-color          #2f343f
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 hide_edge_borders both
@@ -184,13 +192,32 @@ hide_edge_borders both
    	
 #	
 #}
+#
+#bar {   
+#        position top
+#        status_command ~/.config/polybar/launch.sh
+#	font pango: Fira Mono for Powerline 7
+#
+#        colors {
+#                background #282a36
+#                statusline #f8f8f2
+#                separator #1ABC9C
+#                # colorclass       <border> <background> <text>
+#                focused_workspace  #ff79c6  #ff79c6     #f8f8f2
+#                inactive_workspace #282a36  #282a36     #f8f8f2
+#
+#        }
+#}
+
 #autolaunch applications
 #exec --no-startup-id ~/.fehbg
 exec picom 
-exec redshift -P -O 4500k
+exec redshift -P -O 5000k
 exec nitrogen --restore
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec dunst
+#exec xrandr --output DP-4 --off
 exec xrandr --output HDMI-0 --left-of DP-4
 for_window [class="^.*"] border pixel 2
-gaps inner 2 
-gaps outer 2
+gaps inner 3
+gaps outer 0
