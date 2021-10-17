@@ -261,7 +261,7 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
-    <keybind key="A-F4">
+    <keybind key="W-q">
       <action name="Close"/>
     </keybind>
     <keybind key="A-Escape">
@@ -305,22 +305,22 @@
       </action>
     </keybind>
     <!-- Keybindings for window switching with the arrow keys -->
-    <keybind key="W-S-Right">
+    <keybind key="W-l">
       <action name="DirectionalCycleWindows">
         <direction>right</direction>
       </action>
     </keybind>
-    <keybind key="W-S-Left">
+    <keybind key="W-h">
       <action name="DirectionalCycleWindows">
         <direction>left</direction>
       </action>
     </keybind>
-    <keybind key="W-S-Up">
+    <keybind key="W-k">
       <action name="DirectionalCycleWindows">
         <direction>up</direction>
       </action>
     </keybind>
-    <keybind key="W-S-Down">
+    <keybind key="W-j">
       <action name="DirectionalCycleWindows">
         <direction>down</direction>
       </action>
