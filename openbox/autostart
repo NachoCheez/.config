@@ -1,0 +1,7 @@
+picom &
+./screen.sh &
+tint2 &
+nitrogen --restore &
+redshift -P -O 5000k &
+~/.config/polybar/launch.sh &
+./screen.sh
