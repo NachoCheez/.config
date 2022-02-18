@@ -1,0 +1,37 @@
+#colorscheme='endeavoros'
+colors:
+  primary:
+    background: '#08052b'
+    foreground: '#e3e3ea'
+    dim_foreground: '#a5abb6'
+  cursor:
+    text: '#ffffff'
+    cursor: '#ff7f7f'
+      
+  normal:
+    black: '#000000'
+    red: '#aa0000'
+    green: '#4c3daa'
+    yellow: '#aa5500'
+    blue: '#0000aa'
+    magenta: '#aa00aa'
+    cyan: '#00aaaa'
+    white: '#aaaaaa'
+  bright:
+    black: '#555555'
+    red: '#ff5555'
+    green: '#55ff55'
+    yellow: '#ffff55'
+    blue: '#5555ff'
+    magenta: '#ff55ff'
+    cyan: '#55ffff'
+    white: '#ffffff'
+  dim:
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'
